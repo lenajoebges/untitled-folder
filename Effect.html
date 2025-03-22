@@ -5,27 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das Wiener Manifest zum Digitalen Humanismus</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
             padding: 50px;
-            background-color: #f1c3c3;
+            background: radial-gradient(circle, #1a1a1a, #0a0a0a);
+            color: #d4d4d4;
         }
+
+        h1 {
+            font-size: 2em;
+            letter-spacing: 1.5px;
+            color: #f0f0f0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
         .container {
             position: relative;
-            height: 150px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .text {
             position: absolute;
-            width: 100%;
-            font-size: 24px;
+            width: 80%;
+            font-size: 20px;
+            line-height: 1.5;
             transition: opacity 1.5s ease-in-out;
         }
+
         .hidden {
             opacity: 0;
         }
+
         .removed {
             display: none;
+        }
+
+        /* Neuer Text in reinem Rot */
+        .red-text {
+            font-size: 24px;
+            color: #ff0033;
         }
     </style>
 </head>
@@ -33,27 +57,30 @@
     <h1>Das Wiener Manifest zum Digitalen Humanismus</h1>
     
     <div class="container">
-        <p id="oldTextDisplay" class="text">Privatsphäre und Redefreiheit sind Grundwerte, die im Mittelpunkt unserer Aktivitäten stehen sollen. Daher müssen Strukturen wie soziale Medien oder Online-Plattformen derart geändert werden, dass freie Meinungsäußerung, Verbreitung von Informationen und Privatsphäre besser geschützt sind.
-            Wir stehen an einem wichtigen Kreuzungspunkt in Richtung Zukunft. Wir müssen handeln und die richtige Richtung einschlagen!</p>
-        <p id="newTextDisplay" class="text hidden">Wie viel Mensch bleibt, wenn Privatsphäre und Redefreiheit verschwinden?</p>
-    </div>
-    
-    <script>
-        window.onload = function() {
-            let oldTextElement = document.getElementById("oldTextDisplay");
-            let newTextElement = document.getElementById("newTextDisplay");
-            
-            // Nach 1.5 Sekunden den alten Text langsam ausblenden
-            setTimeout(() => {
-                oldTextElement.classList.add("hidden");
-            }, 1500);
-            
-            // Nach 3 Sekunden den alten Text komplett entfernen und neuen einblenden
-            setTimeout(() => {
-                oldTextElement.classList.add("removed");
-                newTextElement.classList.remove("hidden");
-            }, 3000);
-        };
-    </script>
-</body>
-</html>
+        <p id="oldTextDisplay" class="text">Privatsphäre und Redefreiheit sind Grundwerte, die im Mittelpunkt unserer Aktivitäten stehen sollen. Daher müssen Strukturen wie soziale Medien oder Online-Plattformen derart geändert werden, dass freie Meinungsäußerung, Verbreitung von Informationen und Privatsphäre besser geschützt sind.
+            Wir stehen an einem wichtigen Kreuzungspunkt in Richtung Zukunft. Wir müssen handeln und die richtige Richtung einschlagen!</p>
+        <p id="newTextDisplay" class="text hidden red-text">
+                Wie viel Zukunft bleibt, wenn Freiheit nur eine Option ist?  
+                Oder das, was davon übrig ist...
+        </p>
+        </div>
+        
+        <script>
+            window.onload = function() {
+                let oldTextElement = document.getElementById("oldTextDisplay");
+                let newTextElement = document.getElementById("newTextDisplay");
+                
+                // Nach 1.5 Sekunden den alten Text langsam ausblenden
+                setTimeout(() => {
+                    oldTextElement.classList.add("hidden");
+                }, 1500);
+                
+                // Nach 3 Sekunden den alten Text komplett entfernen und neuen einblenden
+                setTimeout(() => {
+                    oldTextElement.classList.add("removed");
+                    newTextElement.classList.remove("hidden");
+                }, 3000);
+            };
+        </script>
+    </body>
+    </html>

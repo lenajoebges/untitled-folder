@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Wiener Manifest zum Digitalen Humanismus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f1c3c3;
+        }
+        .container {
+            position: relative;
+            height: 150px;
+        }
+        .text {
+            position: absolute;
+            width: 100%;
+            font-size: 24px;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        .removed {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Das Wiener Manifest zum Digitalen Humanismus</h1>
+    
+    <div class="container">
+        <p id="oldTextDisplay" class="text">Privatsphäre und Redefreiheit sind Grundwerte, die im Mittelpunkt unserer Aktivitäten stehen sollen. Daher müssen Strukturen wie soziale Medien oder Online-Plattformen derart geändert werden, dass freie Meinungsäußerung, Verbreitung von Informationen und Privatsphäre besser geschützt sind.
+            Wir stehen an einem wichtigen Kreuzungspunkt in Richtung Zukunft. Wir müssen handeln und die richtige Richtung einschlagen!</p>
+        <p id="newTextDisplay" class="text hidden">Wie viel Mensch bleibt, wenn Privatsphäre und Redefreiheit verschwinden?</p>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            let oldTextElement = document.getElementById("oldTextDisplay");
+            let newTextElement = document.getElementById("newTextDisplay");
+            
+            // Nach 1.5 Sekunden den alten Text langsam ausblenden
+            setTimeout(() => {
+                oldTextElement.classList.add("hidden");
+            }, 1500);
+            
+            // Nach 3 Sekunden den alten Text komplett entfernen und neuen einblenden
+            setTimeout(() => {
+                oldTextElement.classList.add("removed");
+                newTextElement.classList.remove("hidden");
+            }, 3000);
+        };
+    </script>
+</body>
+</html>
